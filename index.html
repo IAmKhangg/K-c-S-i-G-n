@@ -85,7 +85,33 @@ section>.wrap>p.sub{color:var(--mute);max-width:40em;margin:12px 0 26px}
 .quiz .btn{background:var(--yellow);color:#17302F}
 .quiz .fb{min-height:3em;margin:6px 0 12px}
 footer{padding:34px 0 40px;color:var(--mute);font-size:14px}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.1;background:conic-gradient(from 45deg,var(--brick) 0 25%,transparent 0 50%,var(--brick) 0 75%,transparent 0) 0 0/56px 56px,radial-gradient(circle,var(--teal) 0 5px,transparent 6px) 28px 28px/56px 56px;-webkit-mask:linear-gradient(#000,transparent 85%);mask:linear-gradient(#000,transparent 85%)}
+.era .yr{display:inline-block;border:2px solid var(--brick);border-radius:4px;padding:2px 12px;margin:5px 0 8px 5px;transform:rotate(-2deg);box-shadow:0 0 0 3px var(--card),0 0 0 5px var(--brick)}
+section>.wrap>h2::after{content:"";display:block;width:144px;height:12px;margin-top:14px;background:radial-gradient(circle at 6px 6px,var(--brick) 0 3.5px,transparent 4px),radial-gradient(circle at 18px 6px,var(--yellow) 0 3.5px,transparent 4px);background-size:24px 12px}
+.note{position:relative;transition:transform .25s}
+.note::before{content:"";position:absolute;top:-6px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.7) 0 2px,transparent 3px),var(--brick);box-shadow:0 3px 0 rgba(0,0,0,.28)}
+.note:hover{transform:rotate(0) translateY(-3px)}
+.note.u::after{content:"♥";position:absolute;right:12px;bottom:8px;color:var(--brick)}
+.panel{position:relative;isolation:isolate;overflow:hidden}
+.panel::before{content:"";position:absolute;z-index:-1;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;opacity:.5;background:radial-gradient(circle,var(--yellow) 0 5px,transparent 6px) 0 0/20px 20px}
+.plan svg path{animation:march 1.4s linear infinite}
+.room .ic{font-size:40px;font-weight:400}
+.quiz{position:relative;overflow:hidden}
+.quiz::before{content:"";position:absolute;right:-50px;bottom:-50px;width:170px;height:170px;border-radius:50%;border:24px solid rgba(227,185,60,.22);pointer-events:none}
+.quiz>*{position:relative}
+.quiz>.cf{position:absolute;top:-24px;font-style:normal;pointer-events:none;animation:fall 2.6s ease-in forwards}
+.rays{transform-origin:700px 62px;animation:spin 40s linear infinite}
+.cl{animation:drift 60s linear infinite alternate}
+.sw{transform-origin:0 0;animation:sway 4.2s ease-in-out infinite alternate}
+#veh{animation:drive 24s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes drift{to{transform:translateX(120px)}}
+@keyframes sway{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+@keyframes drive{from{transform:translateX(-440px)}to{transform:translateX(440px)}}
+@keyframes march{to{stroke-dashoffset:-24}}
+@keyframes fall{to{transform:translateY(420px) rotate(240deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*,::before,::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -97,9 +123,9 @@ footer{padding:34px 0 40px;color:var(--mute);font-size:14px}
 
 <div class="scene" id="dong-thoi-gian">
 <svg id="sc" viewBox="0 0 800 300" role="img" aria-label="Đường chân trời Sài Gòn thay đổi theo từng thời kỳ">
-<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop id="s1" offset="0"/><stop id="s2" offset="1"/></linearGradient></defs>
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop id="s1" offset="0"/><stop id="s2" offset="1"/></linearGradient><g id="L"><path d="M0 0v6" stroke="#17302F" stroke-width="1.5"/><rect x="-5" y="6" width="10" height="3" fill="#E3B93C"/><ellipse cy="17" rx="9" ry="9" fill="#B2432F"/><path d="M-3 9q-5 8 0 16M3 9q5 8 0 16" fill="none" stroke="#7C2A1D"/><rect x="-5" y="25" width="10" height="3" fill="#E3B93C"/><path d="M0 28v8" stroke="#E3B93C" stroke-width="2"/></g><g id="T"><rect x="-3" y="-34" width="6" height="34" fill="#6B4A2B"/><circle cy="-44" r="16" fill="#3E7D5E"/><circle cx="-11" cy="-36" r="11" fill="#4E9272"/><circle cx="11" cy="-36" r="11" fill="#4E9272"/></g></defs>
 <rect width="800" height="300" fill="url(#sky)"/>
-<circle cx="700" cy="62" r="24" fill="#F6D77A" opacity=".9"/>
+<circle cx="700" cy="62" r="24" fill="#F6D77A" opacity=".9"/><circle class="rays" cx="700" cy="62" r="38" fill="none" stroke="#F6D77A" stroke-width="7" stroke-dasharray="2 11" opacity=".7"/><g class="cl" fill="#fff" opacity=".7"><path d="M60 70q8-16 26-10q8-14 26-2q16-2 14 12z"/><path d="M420 48q8-14 24-9q9-12 24-1q14-1 12 10z"/></g><path d="M0 10Q70 36 140 10Q210 36 280 10Q350 36 420 10Q490 36 560 10" fill="none" stroke="#17302F" stroke-opacity=".5"/><g transform="translate(70,23)"><g class="sw" style="animation-delay:-0s"><use href="#L"/></g></g><g transform="translate(210,23)"><g class="sw" style="animation-delay:-1s"><use href="#L"/></g></g><g transform="translate(350,23)"><g class="sw" style="animation-delay:-2s"><use href="#L"/></g></g><g transform="translate(490,23)"><g class="sw" style="animation-delay:-3s"><use href="#L"/></g></g>
 <g data-from="0" transform="translate(10,0)"><rect x="0" y="110" width="32" height="140" fill="#B2432F"/><rect x="98" y="110" width="32" height="140" fill="#B2432F"/><rect y="170" width="130" height="80" fill="#A23A28"/><polygon points="0,110 16,58 32,110" fill="#7C2A1D"/><polygon points="98,110 114,58 130,110" fill="#7C2A1D"/><circle cx="65" cy="196" r="15" fill="#E3B93C"/><path d="M52 250v-26a13 13 0 0126 0v26z" fill="#5E2016"/></g>
 <g data-from="0" transform="translate(160,0)"><path d="M0 192Q65 148 130 192z" fill="#C99A22"/><rect y="190" width="130" height="60" fill="#E3B93C"/><g fill="#17302F"><rect x="10" y="205" width="12" height="30" rx="6"/><rect x="34" y="205" width="12" height="30" rx="6"/><rect x="58" y="205" width="12" height="30" rx="6"/><rect x="82" y="205" width="12" height="30" rx="6"/><rect x="106" y="205" width="12" height="30" rx="6"/></g></g>
 <g data-from="1" transform="translate(305,0)"><rect y="205" width="110" height="45" fill="#D8C58E"/><rect x="40" y="150" width="30" height="55" fill="#CDB77A"/><polygon points="36,150 55,128 74,150" fill="#8C6A2A"/><circle cx="55" cy="168" r="8" fill="#fff" stroke="#17302F" stroke-width="2"/><rect x="10" y="218" width="90" height="10" fill="#8C6A2A" opacity=".5"/></g>
@@ -107,7 +133,7 @@ footer{padding:34px 0 40px;color:var(--mute);font-size:14px}
 <g data-from="4" transform="translate(590,0)"><polygon points="0,250 0,110 25,78 50,110 50,250" fill="#2B7A8C"/><circle cx="25" cy="112" r="9" fill="#E3B93C"/><path d="M12 130v110M25 130v110M38 130v110" stroke="#fff" stroke-opacity=".3"/></g>
 <g data-from="4" transform="translate(670,0)"><polygon points="10,250 10,90 25,40 40,90 40,250" fill="#1E5F70"/><path d="M25 40V8" stroke="#1E5F70" stroke-width="3"/><rect x="46" y="130" width="22" height="120" fill="#3C8FA2"/><path d="M17 100v140M25 100v140M33 100v140" stroke="#fff" stroke-opacity=".3"/></g>
 <g data-from="4"><rect y="226" width="800" height="7" fill="#6B7C7A"/><g fill="#6B7C7A"><rect x="70" y="233" width="8" height="17"/><rect x="290" y="233" width="8" height="17"/><rect x="520" y="233" width="8" height="17"/><rect x="740" y="233" width="8" height="17"/></g></g>
-<rect y="250" width="800" height="50" fill="#4E5F5C"/><path d="M0 276h800" stroke="#E3B93C" stroke-width="3" stroke-dasharray="26 18"/>
+<g data-from="0"><use href="#T" x="150" y="250"/><use href="#T" x="422" y="250"/><use href="#T" x="575" y="250"/><use href="#T" x="780" y="250"/></g><rect y="250" width="800" height="50" fill="#4E5F5C"/><path d="M0 276h800" stroke="#E3B93C" stroke-width="3" stroke-dasharray="26 18"/>
 <text id="veh" x="400" y="292" font-size="30" text-anchor="middle">🚋</text>
 </svg>
 <div class="ctl">
@@ -186,6 +212,7 @@ function setRoom(i){ri=(i+4)%4;const r=R[ri];$$(".room").forEach((g,k)=>g.classL
 $("#rT").textContent=r.t;$("#rD").textContent=r.d;$("#rA").textContent=r.a;$("#rK").textContent=r.k}
 $$(".room").forEach(g=>{g.onclick=()=>setRoom(+g.dataset.i);g.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();setRoom(+g.dataset.i)}}});
 $("#nx").onclick=()=>setRoom(ri+1);$("#pv").onclick=()=>setRoom(ri-1);setRoom(0);
+$$(".room").forEach((g,i)=>{const q=g.querySelector("rect"),t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("class","ic");t.setAttribute("aria-hidden","true");t.setAttribute("x",+q.getAttribute("x")+232);t.setAttribute("y",+q.getAttribute("y")+62);t.textContent=["⏳","🏮","🏠","🔭"][i];g.appendChild(t)});
 
 const S=[
 ["Tiếng chuông xe kem buổi trưa hè, nghe là cả xóm chạy ra cửa.","Âm thanh","1995"],
@@ -200,7 +227,7 @@ const cats=["Tất cả","Âm thanh","Hương vị","Góc phố"];
 function drawWall(){
 $("#fl").innerHTML="";cats.forEach(c=>{const b=document.createElement("button");b.textContent=c;b.setAttribute("aria-pressed",c===F);b.onclick=()=>{F=c;drawWall()};$("#fl").appendChild(b)});
 const w=$("#wl");w.innerHTML="";
-M.forEach((m,i)=>{if(F!=="Tất cả"&&m.c!==F)return;const d=document.createElement("div");d.className="note";
+M.forEach((m,i)=>{if(F!=="Tất cả"&&m.c!==F)return;const d=document.createElement("div");d.className="note"+(m.u?" u":"");
 d.style.background=col[i%4];d.style.setProperty("--r",((i*37)%5-2)*.8+"deg");
 const p=document.createElement("p");p.textContent="“"+m.t+"”";const s=document.createElement("small");s.textContent=m.c+(m.y?" · "+m.y:"")+(m.u?" · của bạn":"");
 d.append(p,s);w.appendChild(d)})}
@@ -216,8 +243,10 @@ const Q=[
 ["Tòa nhà Chợ Bến Thành hiện nay khánh thành năm nào?",["1891","1914","1954"],1,"Chợ Bến Thành mở cửa năm 1914."],
 ["Sài Gòn đổi tên thành Thành phố Hồ Chí Minh năm nào?",["1954","1976","1986"],1,"Tên gọi chính thức đổi vào năm 1976."]];
 let qi=0,sc=0;
+function confetti(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const z=$("#qz");for(let i=0;i<28;i++){const e=document.createElement("i");e.className="cf";e.textContent=["🌸","✨","🏵️","🌼"][i%4];e.style.cssText="left:"+Math.random()*100+"%;animation-delay:"+Math.random()*.8+"s;font-size:"+(14+Math.random()*14)+"px";z.appendChild(e);setTimeout(()=>e.remove(),3600)}}
+
 function drawQ(){const z=$("#qz");
-if(qi>=Q.length){z.innerHTML="<h3>Bạn đúng "+sc+"/"+Q.length+" câu</h3><p>"+(sc>=3?"Bạn khá thuộc Sài Gòn rồi. Thử ghim một ký ức lên tường nhé.":"Kéo lại thanh thời gian ở đầu trang rồi thử lần nữa.")+"</p><button class='btn' id='rs'>Chơi lại</button>";$("#rs").onclick=()=>{qi=0;sc=0;drawQ()};return}
+if(qi>=Q.length){z.innerHTML="<h3>Bạn đúng "+sc+"/"+Q.length+" câu</h3><p>"+(sc>=3?"Bạn khá thuộc Sài Gòn rồi. Thử ghim một ký ức lên tường nhé.":"Kéo lại thanh thời gian ở đầu trang rồi thử lần nữa.")+"</p><button class='btn' id='rs'>Chơi lại</button>";$("#rs").onclick=()=>{qi=0;sc=0;drawQ()};if(sc===Q.length)confetti();return}
 const q=Q[qi];z.innerHTML="<small>Câu "+(qi+1)+"/"+Q.length+"</small><h3></h3><div id='op'></div><p class='fb' id='fb' aria-live='polite'></p>";
 z.querySelector("h3").textContent=q[0];
 q[1].forEach((o,k)=>{const b=document.createElement("button");b.className="opt";b.textContent=o;
@@ -231,4 +260,5 @@ $("#theme").onclick=e=>{e.preventDefault();const r=document.documentElement,d=ge
 </script>
 </body>
 </html>
+
 
