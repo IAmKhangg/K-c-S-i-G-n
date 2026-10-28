@@ -104,7 +104,8 @@ section>.wrap>h2::after{content:"";display:block;width:144px;height:12px;margin-
 .rays{transform-origin:700px 62px;animation:spin 40s linear infinite}
 .cl{animation:drift 60s linear infinite alternate}
 .sw{transform-origin:0 0;animation:sway 4.2s ease-in-out infinite alternate}
-#veh{animation:drive 24s linear infinite}
+.dr{animation:drive 24s linear infinite}
+#veh{transform-origin:400px 0;transform:scaleX(-1)}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes drift{to{transform:translateX(120px)}}
 @keyframes sway{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
@@ -134,7 +135,7 @@ section>.wrap>h2::after{content:"";display:block;width:144px;height:12px;margin-
 <g data-from="4" transform="translate(670,0)"><polygon points="10,250 10,90 25,40 40,90 40,250" fill="#1E5F70"/><path d="M25 40V8" stroke="#1E5F70" stroke-width="3"/><rect x="46" y="130" width="22" height="120" fill="#3C8FA2"/><path d="M17 100v140M25 100v140M33 100v140" stroke="#fff" stroke-opacity=".3"/></g>
 <g data-from="4"><rect y="226" width="800" height="7" fill="#6B7C7A"/><g fill="#6B7C7A"><rect x="70" y="233" width="8" height="17"/><rect x="290" y="233" width="8" height="17"/><rect x="520" y="233" width="8" height="17"/><rect x="740" y="233" width="8" height="17"/></g></g>
 <g data-from="0"><use href="#T" x="150" y="250"/><use href="#T" x="422" y="250"/><use href="#T" x="575" y="250"/><use href="#T" x="780" y="250"/></g><rect y="250" width="800" height="50" fill="#4E5F5C"/><path d="M0 276h800" stroke="#E3B93C" stroke-width="3" stroke-dasharray="26 18"/>
-<text id="veh" x="400" y="292" font-size="30" text-anchor="middle">🚋</text>
+<g class="dr"><text id="veh" x="400" y="292" font-size="30" text-anchor="middle">🚋</text></g>
 </svg>
 <div class="ctl">
 <input type="range" id="rg" min="0" max="4" step="1" value="0" aria-label="Chọn thời kỳ">
@@ -260,5 +261,6 @@ $("#theme").onclick=e=>{e.preventDefault();const r=document.documentElement,d=ge
 </script>
 </body>
 </html>
+
 
 
